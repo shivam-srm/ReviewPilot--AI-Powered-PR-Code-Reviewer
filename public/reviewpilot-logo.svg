@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 88" width="340" height="88" role="img" aria-labelledby="rp-title rp-desc">
+  <title id="rp-title">ReviewPilot</title>
+  <desc id="rp-desc">Minimalist geometric logo for ReviewPilot combining a code branch trunk and a precision pilot wing.</desc>
+
+  <style>
+    .rp-word-review {
+      fill: #18181B;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 500;
+      font-size: 30px;
+      letter-spacing: -0.03em;
+    }
+    .rp-word-pilot {
+      fill: #D97706;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 700;
+      font-size: 30px;
+      letter-spacing: -0.03em;
+    }
+    .rp-tag-bg {
+      fill: #F4F4F5;
+      stroke: #E4E4E7;
+    }
+    .rp-tag-text {
+      fill: #52525B;
+      font-family: ui-monospace, 'SFMono-Regular', Menlo, Monaco, Consolas, monospace;
+      font-weight: 600;
+      font-size: 10.5px;
+      letter-spacing: 0.04em;
+    }
+
+    /* Tactile, restrained micro-animation */
+    .rp-wing {
+      animation: rpWingGlide 3.2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+    }
+    .rp-branch-line {
+      stroke-dasharray: 42;
+      stroke-dashoffset: 0;
+      animation: rpBranchDraw 3.2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+    }
+    .rp-status-dot {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: rpStatusPop 3.2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+    }
+
+    @keyframes rpWingGlide {
+      0%, 100% { transform: translateX(0px); }
+      18%      { transform: translateX(-3px); }
+      42%, 82% { transform: translateX(2px); }
+    }
+
+    @keyframes rpBranchDraw {
+      0%, 12%  { stroke-dashoffset: 42; opacity: 0.4; }
+      38%, 85% { stroke-dashoffset: 0; opacity: 1; }
+      100%     { stroke-dashoffset: 0; opacity: 1; }
+    }
+
+    @keyframes rpStatusPop {
+      0%, 34%  { fill: #52525B; transform: scale(0.85); }
+      48%, 82% { fill: #10B981; transform: scale(1.1); }
+      95%, 100%{ fill: #52525B; transform: scale(0.85); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .rp-wing,
+      .rp-branch-line,
+      .rp-status-dot {
+        animation: none !important;
+        transform: none !important;
+        stroke-dashoffset: 0 !important;
+        opacity: 1 !important;
+      }
+      .rp-status-dot {
+        fill: #10B981 !important;
+      }
+    }
+  </style>
+
+  <!-- Precision Matte Tile -->
+  <g>
+    <rect x="6" y="6" width="76" height="76" rx="18" fill="#111113" stroke="#27272A" stroke-width="1.25" />
+
+    <!-- PR Trunk -->
+    <line class="rp-branch-line" x1="25" y1="24" x2="25" y2="64" stroke="#E4E4E7" stroke-width="3.25" stroke-linecap="round" />
+
+    <!-- Source Node -->
+    <circle cx="25" cy="64" r="3.5" fill="#111113" stroke="#E4E4E7" stroke-width="2.5" />
+
+    <!-- Verified / Target Node -->
+    <circle class="rp-status-dot" cx="25" cy="24" r="4" fill="#10B981" />
+
+    <!-- Pilot Delta Wing (merged with PR vector) -->
+    <g class="rp-wing">
+      <path d="M 36 25 L 65 44 L 36 63 L 44 44 Z" fill="#F59E0B" />
+      <line x1="36" y1="44" x2="54" y2="44" stroke="#111113" stroke-width="2.5" stroke-linecap="round" />
+    </g>
+  </g>
+
+  <!-- Wordmark + Monospace PR Tag -->
+  <g transform="translate(100, 0)">
+    <text x="0" y="53">
+      <tspan class="rp-word-review">Review</tspan><tspan class="rp-word-pilot">Pilot</tspan>
+    </text>
+    <rect class="rp-tag-bg" x="176" y="34" width="38" height="20" rx="6" stroke-width="1" />
+    <text class="rp-tag-text" x="195" y="48" text-anchor="middle">PR</text>
+  </g>
+</svg>
